@@ -1,132 +1,70 @@
-ShadowCopyX
+# ShadowCopyX
 
-ShadowCopyX is a powerful and efficient backup and restoration tool built with PowerShell. It enables seamless file backup and restoration while ensuring data integrity. With an intuitive command-line interface, ShadowCopyX simplifies scheduling automated backups, restoring files, and managing logs.
+**ShadowCopyX** is a powerful, automated file backup and restoration tool designed for Windows. It utilizes `7-Zip` for efficient compression and encryption, making backups secure and reliable.
 
-Features
+## Features  
+- **Automated Backups**  
+  - Schedule daily, weekly, or monthly backups.  
+  - Secure backup files using AES-256 encryption.  
 
-Automated Backups – Schedule backups daily, weekly, or monthly.
+- **Easy Restoration**  
+  - Restore files to their original locations.  
+  - View logs of previous backup and restore operations.  
 
-Secure Backup – Encrypt backups using 7-Zip with a custom password.
+- **Customizable Settings**  
+  - Modify backup directories, schedules, and passwords.  
+  - Set up logging for troubleshooting and monitoring.  
 
-Restoration Support – Restore files efficiently to their original location.
+- **Task Scheduling**  
+  - Integrates with Windows Task Scheduler for automated execution.  
+  - Supports manual and scheduled backup modes.  
 
-Logging System – Maintain logs for backup and restore activities.
+## Installation  
+1. **Install 7-Zip** (Required)  
+   - Download and install [7-Zip](https://www.7-zip.org/download.html).  
 
-User-friendly CLI – Easy-to-use command-line interface.
+2. **Clone or Download the Repository**  
+   ```sh
+   git clone https://github.com/yourusername/ShadowCopyX.git
+   cd ShadowCopyX
 
-Installation
 
-Clone the repository:
+## Usage  
 
-git clone https://github.com/yourusername/ShadowCopyX.git
-cd ShadowCopyX
+### Run the Script  
+- **Open PowerShell as Administrator**  
+  - Press `Win + X`, then select **PowerShell (Admin)**.  
+  - Navigate to the script directory:  
+   
+    cd C:\Path\To\ShadowCopyX
+ 
+  - Run the script:  
+  
+    .\ShadowCopyX.ps1
+  
 
-Run the script:
+### Manual Backup  
+- **Run the script and choose:**  
+  - `6. Backup Files Now` to perform an instant backup.  
 
-powershell -ExecutionPolicy Bypass -File ShadowCopyX.ps1
+### Scheduled Backup  
+- **Run the script and choose:**  
+  - `3. Schedule Backup` to set up automated backups.  
 
-Ensure 7-Zip is installed (required for compression):
+### Restore Files  
+- **Run the script and choose:**  
+  - `7. Restore Files Now` to extract the latest backup.  
 
-Download and install 7-Zip from https://www.7-zip.org.
+### View Logs  
+- **Run the script and choose:**  
+  - `8. View Logs` to check past backup and restore activities.  
 
-Usage
+## Configuration  
+Modify the script variables to customize settings:  
 
-Running the Script
+```powershell
+$Global:defaultBackupDir = "C:\Backup\"
+$Global:defaultRestoreDir = "C:\Restore\"
+$Global:defaultFrequency = "daily"
+$Global:defaultPassword = "MySecurePassword"
 
-Execute the script by running:
-
-powershell -File ShadowCopyX.ps1
-
-Menu Options
-
-Once executed, the script provides an interactive menu:
-
- 1. Check Configurations
- 2. Change Configurations
- 3. Schedule Backup
- 4. View Scheduled Tasks
- 5. Clear Scheduled Tasks
- 6. Backup Files Now
- 7. Restore Files Now
- 8. View Logs
- 9. Exit
-
-Scheduling a Backup
-
-To schedule an automated backup:
-
-.\ShadowCopyX.ps1 -Mode schedule
-
-Running a Manual Backup
-
-.\ShadowCopyX.ps1 -Mode manual
-
-Restoring Files
-
-.\ShadowCopyX.ps1 -Mode restore
-
-Configuration
-
-The script provides default configuration settings:
-
-Parameter
-
-Default Value
-
-Backup Directory
-
-.ackups\
-
-Restore Directory
-
-`.
-
-estore`
-
-Source Directory
-
-.\source\
-
-Backup Frequency
-
-daily
-
-Encryption Password
-
-MySecurePassword
-
-Log File Path
-
-`.
-
-estore\Restore.txt`
-
-Scheduled Time
-
-02:00
-
-To modify configurations, select option 2 in the main menu.
-
-Logging System
-
-Backup and restore operations are logged in Restore.txt inside the restore directory. To view logs, select option 8 from the menu.
-
-Contributing
-
-Contributions are welcome! Please follow these steps:
-
-Fork the repository.
-
-Create a new branch (feature-branch).
-
-Commit your changes.
-
-Push to your branch and create a Pull Request.
-
-License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Author
-
-Shehan Anuradha🚀 Created with PowerShell for efficient backups!
