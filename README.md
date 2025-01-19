@@ -1,5 +1,5 @@
 # ShadowCopyX
-![GitHub License](https://img.shields.io/github/license/Shehan-Anuradha/ShadowCopyX)
+
 **ShadowCopyX** is a powerful, automated file backup and restoration tool designed for Windows. It utilizes `7-Zip` for efficient compression and encryption, making backups secure and reliable.
 
 ## Features  
@@ -68,6 +68,5 @@ $Global:defaultRestoreDir = "C:\Restore\"
 $Global:defaultFrequency = "daily"
 $Global:defaultPassword = "MySecurePassword"
 
-## License
-This project is licensed under the [MIT License](https://github.com/Shehan-Anuradha/ShadowCopyX/blob/master/LICENSE).
+
 
