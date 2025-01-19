@@ -1,41 +1,45 @@
 ShadowCopyX
 
-ShadowCopyX is a powerful, lightweight, and user-friendly backup automation tool for Windows, built using PowerShell. It enables seamless file backup and restoration with integrity verification, utilizing 7-Zip for compression and Windows Task Scheduler for automated execution.
+ShadowCopyX is a powerful and efficient backup and restoration tool built with PowerShell. It enables seamless file backup and restoration while ensuring data integrity. With an intuitive command-line interface, ShadowCopyX simplifies scheduling automated backups, restoring files, and managing logs.
 
 Features
 
-✅ Automated Backups – Schedule daily, weekly, or monthly backups effortlessly.✅ Secure Compression – Uses 7-Zip with password protection for enhanced security.✅ One-Click Restore – Easily retrieve lost files with minimal effort.✅ Customizable Configuration – Modify settings like backup location, frequency, and encryption key.✅ Integrity Verification – Ensures data accuracy after extraction.✅ Lightweight & Fast – Runs efficiently in the background without slowing down your system.
+Automated Backups – Schedule backups daily, weekly, or monthly.
+
+Secure Backup – Encrypt backups using 7-Zip with a custom password.
+
+Restoration Support – Restore files efficiently to their original location.
+
+Logging System – Maintain logs for backup and restore activities.
+
+User-friendly CLI – Easy-to-use command-line interface.
 
 Installation
-
-Prerequisites
-
-Windows 10 or later
-
-PowerShell 5.1+
-
-7-Zip (Ensure 7z.exe is installed at C:\Program Files\7-Zip\7z.exe or modify the script accordingly)
-
-Setup
 
 Clone the repository:
 
 git clone https://github.com/yourusername/ShadowCopyX.git
 cd ShadowCopyX
 
-Ensure execution policy allows running scripts:
-
-Set-ExecutionPolicy Bypass -Scope Process -Force
-
 Run the script:
 
-.\ShadowCopyX.ps1
+powershell -ExecutionPolicy Bypass -File ShadowCopyX.ps1
+
+Ensure 7-Zip is installed (required for compression):
+
+Download and install 7-Zip from https://www.7-zip.org.
 
 Usage
 
-Main Menu
+Running the Script
 
-Upon running the script, you will be presented with the following options:
+Execute the script by running:
+
+powershell -File ShadowCopyX.ps1
+
+Menu Options
+
+Once executed, the script provides an interactive menu:
 
  1. Check Configurations
  2. Change Configurations
@@ -49,49 +53,80 @@ Upon running the script, you will be presented with the following options:
 
 Scheduling a Backup
 
-To schedule an automatic backup:
+To schedule an automated backup:
 
-Select option 3 from the menu.
+.\ShadowCopyX.ps1 -Mode schedule
 
-Choose the backup frequency (Daily, Weekly, or Monthly).
+Running a Manual Backup
 
-Specify the time for the backup to execute.
-
-The script will create a Windows Scheduled Task to run the backup automatically.
-
-Running a Backup Manually
-
-Select option 6 to perform an immediate backup of your files.
+.\ShadowCopyX.ps1 -Mode manual
 
 Restoring Files
 
-Select option 7 and choose the backup archive you want to restore.
+.\ShadowCopyX.ps1 -Mode restore
 
-Viewing Logs
+Configuration
 
-Select option 8 to check backup and restore logs.
+The script provides default configuration settings:
 
-Converting to EXE
+Parameter
 
-To convert this script into an .exe file with an icon:
+Default Value
 
-Use PS2EXE:
+Backup Directory
 
-Install-Module ps2exe -Scope CurrentUser
-ps2exe .\ShadowCopyX.ps1 .\ShadowCopyX.exe -icon .\icon.ico
+.ackups\
 
-The ShadowCopyX.exe file will be generated, allowing you to run it without opening PowerShell.
+Restore Directory
 
-Troubleshooting
+`.
 
-Issue: Access Denied Errors
+estore`
 
-Run PowerShell as Administrator.
+Source Directory
 
-Ensure the script has permission to write to the configured backup directory.
+.\source\
 
-Issue: 7-Zip Not Found
+Backup Frequency
 
-Ensure 7z.exe is installed in C:\Program Files\7-Zip\
+daily
 
-Update $Global:defaultSevenZipPath in the script if installed elsewhere.
+Encryption Password
+
+MySecurePassword
+
+Log File Path
+
+`.
+
+estore\Restore.txt`
+
+Scheduled Time
+
+02:00
+
+To modify configurations, select option 2 in the main menu.
+
+Logging System
+
+Backup and restore operations are logged in Restore.txt inside the restore directory. To view logs, select option 8 from the menu.
+
+Contributing
+
+Contributions are welcome! Please follow these steps:
+
+Fork the repository.
+
+Create a new branch (feature-branch).
+
+Commit your changes.
+
+Push to your branch and create a Pull Request.
+
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Author
+
+Shehan Anuradha🚀 Created with PowerShell for efficient backups!
